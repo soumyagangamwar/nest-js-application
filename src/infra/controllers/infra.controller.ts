@@ -8,12 +8,18 @@ export class InfraController {
     constructor(private infraService: InfraService){}
     @Post()
     async createInfraDetails(@Body() infraModel: InfraModel ,@Res() res: Response){
-        const data = this.infraService.fetchInfraList({
-            url: 'test',
-            environment: 'test'
-        });
+        const data = await this.infraService.saveInfra(infraModel);
         res.status(HttpStatus.OK).json({
-            message: 'InfraDetails',
+            message: 'InfraDetails sucessfully saved',
+            data
+        })
+    }
+
+    @Get()
+    async getAllInfraList(@Res() res: Response){
+        const data = await this.infraService.getInfraList();
+        res.status(HttpStatus.OK).json({
+            message: 'InfraDetails ',
             data
         })
     }

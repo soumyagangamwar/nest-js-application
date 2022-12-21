@@ -4,7 +4,13 @@ import { InfraAggregatorService } from "./infra.aggregator.service";
 @Injectable()
 export class InfraService {
     constructor(private infraAggregatorService: InfraAggregatorService){}
-    async fetchInfraList (data) {
+     saveInfra (data) {
         return this.infraAggregatorService.createInfraDetails(data);
     }
+
+    getInfraList() {
+        return this.infraAggregatorService.getInfraList()
+
+    }
+
 }

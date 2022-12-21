@@ -13,4 +13,13 @@ export class InfraAggregatorService {
             console.error(e)
         }
     }
+
+    getInfraList =async () => {
+        try {
+            const infra = this.infraDataRepository.findAll();
+            return infra;
+        }catch(e) {
+            console.error(e)
+        }
+    }
 }
